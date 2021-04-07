@@ -23,6 +23,7 @@ $image-path: '/media/protocol/img';
 @import '../../protocol/css/base/includes';
 
 // Utility includes
+@import '../../protocol/css/base/utilities/backgrounds';
 @import '../../protocol/css/base/utilities/titles';
 
 // Global components
@@ -50,7 +51,6 @@ $image-path: '/media/protocol/img';
     @include text-body-md;
 }
 
-
 // style classes automatically added by python to match Protocol form error styles
 .errorlist,
 .error-msg {
@@ -62,8 +62,97 @@ $image-path: '/media/protocol/img';
     margin-bottom: $spacing-xl;
 }
 
-
 // hide <template> elements in the DOM.
 template {
     display: none !important; /* stylelint-disable-line declaration-no-important */
+}
+
+
+//* --------------------------------------------------------------------------------*/
+// TEMPORARY fixes for Protocol 14
+
+.mzp-l-content {
+    // No bottom margins on last child
+    // Note: this can cause trouble if mzp-l-content
+    // is used as a grid or flex container
+    & > :last-child {
+        margin-bottom: 0;
+    }
+
+    // Please don't nest containers
+    .mzp-l-content {
+        padding: 0;
+    }
+
+    // Remove vertical spacing
+    &.mzp-t-content-nospace {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    @media #{$mq-md} {
+        // Please don't nest containers
+        .mzp-l-content {
+            padding: 0;
+        }
+    }
+
+    @media #{$mq-xl} {
+        // Please don't nest containers
+        .mzp-l-content {
+            padding: 0;
+        }
+    }
+}
+
+// No extra padding now that l-content has more
+.mzp-c-hero {
+    padding-bottom: 0 !important; /* stylelint-disable-line declaration-no-important */
+
+    @media #{$mq-lg} {
+        padding: 0 !important; /* stylelint-disable-line declaration-no-important */
+    }
+}
+
+// No extra vertical spacing when there's a full-bleed background
+.mzp-c-split.mzp-has-flush-bg {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+// No bottom margins in multi-column layout
+.mzp-l-columns .mzp-c-picto {
+    margin-bottom: 0;
+}
+
+// Fix form colors in dark theme
+.mzp-c-form {
+    color: get-theme('body-text-color-alt');
+
+    &.mzp-t-dark,
+    .mzp-t-dark & {
+        color: get-theme('body-text-color-alt-inverse');
+    }
+}
+
+// No bottom margin when a feature card at the bottom of a container
+.mzp-c-card-feature {
+    .mzp-l-content > &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Vertical gaps when columns wrap
+@media #{$mq-md} {
+    .mzp-l-columns {
+        grid-gap: get-theme('v-grid-sm') get-theme('h-grid-md');
+        gap: get-theme('v-grid-sm') get-theme('h-grid-md');
+    }
+}
+
+@media #{$mq-lg} {
+    .mzp-l-columns {
+        grid-gap: get-theme('v-grid-lg') get-theme('h-grid-xl');
+        gap: get-theme('v-grid-lg') get-theme('h-grid-xl');
+    }
 }
