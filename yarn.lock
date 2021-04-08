@@ -138,10 +138,10 @@
     normalize-path "^2.0.1"
     through2 "^2.0.3"
 
-"@mozilla-protocol/core@13.0.1":
-  version "13.0.1"
-  resolved "https://registry.yarnpkg.com/@mozilla-protocol/core/-/core-13.0.1.tgz#507b72f7a5412b0b405de296e0770397742411c4"
-  integrity sha512-Wnhvd9VTQ717C4urboBjt4kaeMqgPOgLNKRFaYNBUFQji42a9Vem/qrs++t8NjfLJh9fd0MTz6ejHCSbCPkiBA==
+"@mozilla-protocol/core@14.0.0":
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/@mozilla-protocol/core/-/core-14.0.0.tgz#d1efea3593642b6884d9e74d6d0b006c80a14602"
+  integrity sha512-25oVCkWnXWcp+oB1+qU8nwNz1gvApXQ7yxl/G9d/TyIdmaUpRNace3ejUfvzR96R2P2JyHmh6+0y9B5cro8TJQ==
 
 "@mozilla-protocol/eslint-config@^1.1.0":
   version "1.1.0"
